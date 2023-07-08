@@ -1,5 +1,5 @@
 import time
-
+import threading
 
 def progress_bar():
     length = 50
@@ -22,7 +22,6 @@ def spinning_stick():
 
 
 def bouncing_line():
-    print()
     length = 30
     running_line = "88888"
     left_marging = 0
@@ -42,8 +41,7 @@ def bouncing_line():
             direction = 1
         frame = (frame + direction) % length
 
-
-def running_line():
+def running_line(): 
     length = 30
     running_line = "88888"
     left_marging = 0
@@ -65,6 +63,12 @@ def running_line():
 
 
 progress_bar()
+thread1 = threading.Thread(target=spinning_stick)
+thread2 = threading.Thread(target=bouncing_line)
+# thread3 = threading.Thread(target=running_line)
 # spinning_stick()
 # bouncing_line()
 # running_line()
+thread1.start()
+thread2.start()
+# thread3.start()
